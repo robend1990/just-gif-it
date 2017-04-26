@@ -1,24 +1,30 @@
 package com.rdrewniak.controller;
 
-import com.madgag.gif.fmsware.AnimatedGifEncoder;
+import java.io.File;
+import java.io.IOException;
+import java.lang.invoke.MethodHandles;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javax.inject.Inject;
+
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.FrameGrabber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.rdrewniak.services.ConverterService;
-import com.rdrewniak.services.GifEncoderService;
-import com.rdrewniak.services.VideoDecoderService;
 
-import javax.inject.Inject;
-import java.io.File;
-import java.io.IOException;
-import java.lang.invoke.MethodHandles;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import com.justgifit.services.ConverterService;
+import com.justgifit.services.GifEncoderService;
+import com.justgifit.services.VideoDecoderService;
+import com.madgag.gif.fmsware.AnimatedGifEncoder;
 
 @RestController
 public class UploadController {
